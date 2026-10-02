@@ -1,0 +1,13 @@
+   version: 2.1
+   jobs:
+     build:
+       docker:
+         - image: cimg/python:3.12
+       steps:
+         - checkout
+         - run: pip install requests
+         - run: cd GitHubApi567-hw03a && python -m unittest -v test_github_api
+   workflows:
+     main:
+       jobs:
+         - build
